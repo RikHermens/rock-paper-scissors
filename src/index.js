@@ -14,10 +14,14 @@ function playRound() {
     playerSelection = prompt("Please choose Rock, Paper or Scissors");
     playerSelection = playerSelection.toLowerCase();
 
-    if (playerSelection == "rock" && computerPlay() == "scissors" || playerSelection == "scissors" && computerPlay() == "paper" || playerSelection == "paper" && computerPlay() == "rock") {
+    if (playerSelection == "rock" && computerPlay() == "scissors" ||
+        playerSelection == "scissors" && computerPlay() == "paper" ||
+        playerSelection == "paper" && computerPlay() == "rock") {
         playerScore += 1;
         alert(`You win! Score is ${playerScore} for you, ${computerScore} for computer.`);
-    } else if (playerSelection == "rock" && computerPlay() == "rock" || playerSelection == "scissors" && computerPlay() == "scissors" || playerSelection == "paper" && computerPlay() == "paper") {
+    } else if (playerSelection == "rock" && computerPlay() == "rock" ||
+        playerSelection == "scissors" && computerPlay() == "scissors" ||
+        playerSelection == "paper" && computerPlay() == "paper") {
         alert(`Tie! Score is ${playerScore} for you, ${computerScore} for computer.`);
     } else {
         computerScore += 1;
