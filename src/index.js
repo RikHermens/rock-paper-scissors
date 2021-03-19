@@ -10,8 +10,7 @@ function computerPlay() {
 }
 
 function playRound(aPlayerscore, aComputerscore) {
-    playerSelection = prompt("Please choose Rock, Paper or Scissors");
-    playerSelection = playerSelection.toLowerCase();
+    playerSelection = prompt("Please choose Rock, Paper or Scissors").toLowerCase();
 
     if (playerSelection != 'rock' && playerSelection != 'paper' && playerSelection != 'scissors') {
         alert(`Your input:  ${playerSelection} is invalid, please play again`);
@@ -32,9 +31,7 @@ function playRound(aPlayerscore, aComputerscore) {
     // Als de string hetzelfde is dan is het gelijkspel, hoef je niet de vergelijking van alle twee met rock te doen
     if (playerSelection == computerSelection) {
         alert(`Tie! Score is ${aPlayerscore} for you, ${aComputerscore} for computer.`);
-    } else if (playerSelection == "rock" && computerSelection == "scissors" ||
-        playerSelection == "scissors" && computerSelection == "paper" ||
-        playerSelection == "paper" && computerSelection == "rock") {
+    } else if (playerWins(playerSelection, computerSelection)) {
         aPlayerscore += 1;
         alert(`You win! Score is ${aPlayerscore} for you, ${aComputerscore} for computer.`);
     } else {
@@ -56,6 +53,13 @@ function winnerOrNextRound(aPlayerscore, aComputerscore) {
     } else {
         alert("You lose first to 5, LOSER!")
     }
+}
+
+// Losse functie zodat de code van het spel wat minder ruis bevat
+function playerWins(aPlayerSelection, aComputerSelection) {
+    return aPlayerSelection == "rock" && aComputerSelection == "scissors" ||
+        aPlayerSelection == "scissors" && aComputerSelection == "paper" ||
+        aPlayerSelection == "paper" && aComputerSelection == "rock"
 }
 
 // Start game
